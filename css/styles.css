@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left side */
+
+figure {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 40vw;
+    background: no-repeat url(../images/wu-yi-V8RSd8SDwow-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    image-rendering: crisp-edges; 
+}
+
+.odin-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 150px;
+    width: 100%;
+    margin-top: 30vh;
+    background-color: #000;
+    opacity: 0.8;
+    color: #fff;
+}
+
+.odin-logo {
+    height: 85%;
+}
+
+footer {
+    margin-top: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Right side */
+
+main {
+    max-width: 60vw;
+    margin: 25vh 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

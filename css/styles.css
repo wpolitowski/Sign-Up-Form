@@ -18,14 +18,15 @@
     --black-coral: #465566ff;
     --charcoal: #3C4858ff;
     --charleston-green: #20252Aff;
+    --crimson: #DC143C;
 }
 
 
 
-* {
+*, ::before, ::after {
     margin: 0;
     padding: 0;
-    border: none;
+    border: 0;
     box-sizing: border-box;
     font-family: Poppins, Helvetica, Arial, sans-serif;
     color: var(--charleston-green);
@@ -57,7 +58,7 @@ figure {
     gap: 30px;
     height: 150px;
     width: 100%;
-    margin-top: 15vh;
+    margin-top: 14vh;
     background-color: var(--charleston-green);
     opacity: 0.7;
     /* color: #fff; */
@@ -131,7 +132,8 @@ input {
     padding: 2px 10px;
     border: 1px solid rgba(0,0,0, 0.2);
     border-radius: 3px;
-    font-size: 0.9
+    font-size: 0.9;
+    width: 100%;
 }
 
 input:hover {
@@ -142,27 +144,82 @@ input:focus {
     outline: 1px solid var(--cadet-grey);
 }
 
-/* 
-input:invalid:focus {
-    outline: none;
-    border: 1px solid red;
-} */
-/* 
-input:invalid:not(:placeholder-shown) {
-    outline: none;
-    border: 1px solid red;
+/* input:focus:invalid:not(:placeholder-shown) {
+    outline: 1px solid var(--crimson);
 } */
 
+
+input + span { 
+    position: relative;
+    display: block;
+    height: 0;
+    transition: height .4s ease-in-out;
+}
+
+input:valid:not(:placeholder-shown) + span:after {
+    content: "";
+    background-image: url(../images/check_circle_wght700.svg);
+    background-size:cover;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -25px;
+    right: 6px;
+    fill: white;
+}
 
 input:invalid:not(:placeholder-shown, :focus) {
     outline: none;
-    border: 1px solid red;
+    border: 1px solid var(--crimson);
 }
 
+.invalid {
+    border: 1px solid var(--crimson);
+}
 
+input[type="email"].invalid + span {
+    height: 10px;
+    transition: height .4s ease-in-out;
+}
+
+input[type="email"].invalid + span::before {
+    position: absolute;
+    content: "Please enter email address in following format: login@domain";
+    font-size: .7em;
+    color: #DC143C;
+}
+
+/* input[type="email"]:invalid:not(:placeholder-shown) + span {
+    height: 10px;
+    transition: height .4s ease-in-out;
+}
+
+input[type="email"]:invalid:not(:placeholder-shown) + span:before {
+    position: absolute;
+    content: "Please enter email address in following format: login@domain";
+    font-size: .7em;
+    color: #DC143C;
+}  */
+
+
+
+
+input[type="tel"] + span::before {
+    content: "optional";
+    display: block;
+    background-color: var(--cadet-grey);
+    color: var(--white);
+    position: absolute;
+    top: -48px;
+    right: 1px;
+    padding: 1px 6px;
+    font-size: .6em;
+    font-weight: bold;
+}
 
 ul {
     display: flex;
+    column-gap: 40px;
     flex-wrap: wrap;
     margin: 1.5rem 0;
 }

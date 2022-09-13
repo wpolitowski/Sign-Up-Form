@@ -33,26 +33,32 @@
                         <li>
                             <label for="first-name">First Name</label>
                             <input type="text" id="first-name" name="first-name" placeholder=" " required>
+                            <span></span>
                         </li>
                         <li>
                             <label for="last-name">Last Name</label>
                             <input type="text" id="last-name" name="last-name" placeholder=" " required>
+                            <span></span>
                         </li>
                         <li>
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder=" " required>
+                            <span></span>
                         </li>
                         <li>
                             <label for="phone-number">Phone Number</label>
-                            <input type="tel" id="phone-number" name="phone-number">
+                            <input type="tel" id="phone-number" name="phone-number" placeholder=" ">
+                            <span></span>
                         </li>
                         <li>
                             <label for="pwd">Password</label>
-                            <input type="password" id="pwd" name="pwd" placeholder=" " required>
+                            <input type="password" id="pwd" name="pwd" placeholder=" " pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`!@#$%^&*()_+\-=\[\]{};':\x22\\|,.\x3c>\/?~])[A-Za-z\d`!@#$%^&*()_+\-=\[\]{};':\x22\\|,.\x3c>\/?~]{8,}$" required>
+                            <span></span>
                         </li>
                         <li>
                             <label for="pwd-confirm">Confirm Password</label>
-                            <input type="password" id="pwd-confirm" name="pwd-confirm" placeholder=" " required> 
+                            <input type="password" id="pwd-confirm" name="pwd-confirm" placeholder=" " pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[`!@#$%^&*()_+\-=\[\]{};':\x22\\|,.\x3c>\/?~])[A-Za-z\d`!@#$%^&*()_+\-=\[\]{};':\x22\\|,.\x3c>\/?~]{8,}$" required> 
+                            <span></span>
                         </li>
                     </ul>
                 </div>
@@ -62,6 +68,12 @@
             <p>Already have an account? <span class="bold">Log in</span></p>
         </main>
 
-
+        <script src="./scripts/script.js"></script>
     </body>
 </html>
+
+
+
+<!-- !"#$%&'()*+,-.\/:;<=>?@[\]^_`{|}~ -->
+
+<!-- `!@#$%^&*()_+\-=\[\]{};':\x22\\|,.\x3c>\/?~ -->

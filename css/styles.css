@@ -21,8 +21,6 @@
     --crimson: #DC143C;
 }
 
-
-
 *, ::before, ::after {
     margin: 0;
     padding: 0;
@@ -82,7 +80,11 @@ footer {
 
 small {
     color: var(--alice-blue);
-    font-size: .6em;
+    font-size: .7em;
+}
+
+small > a {
+    color: var(--alice-blue);
 }
 
 /* Right side */
@@ -102,7 +104,6 @@ main {
     margin-bottom: 2rem;
     box-shadow: 0 1px 16px var(--cadet-grey);
 }
-
 
 form h2 {
     color: var(--black-coral);
@@ -148,12 +149,11 @@ input:focus {
     outline: 1px solid var(--crimson);
 } */
 
-
 input + span { 
     position: relative;
     display: block;
     height: 0;
-    transition: height .4s ease-in-out;
+    transition: height .3s ease-in-out;
 }
 
 input:valid:not(:placeholder-shown) + span:after {
@@ -177,32 +177,36 @@ input:invalid:not(:placeholder-shown, :focus) {
     border: 1px solid var(--crimson);
 }
 
-input[type="email"].invalid + span {
+.invalid:focus {
+    outline: 1px solid var(--crimson);
+}
+
+input[type="email"].invalid + span,
+input#pwd.invalid + span,
+input#pwd-confirm.different + span {
     height: 10px;
-    transition: height .4s ease-in-out;
+    transition: height .3s ease-in-out;
+}
+
+input[type="email"].invalid + span::before,
+input#pwd.invalid + span::before,
+input#pwd-confirm.different + span::before {
+    position: absolute;
+    font-size: .7em;
+    color: #DC143C;
+}
+
+input#pwd.invalid + span::before {
+    content: "Your password should contain at least 8 characters, including 1 capital letter, 1 number and 1 special character";
+}
+
+input#pwd-confirm.different + span::before {
+    content: "Provided passwords do not match";
 }
 
 input[type="email"].invalid + span::before {
-    position: absolute;
-    content: "Please enter email address in following format: login@domain";
-    font-size: .7em;
-    color: #DC143C;
+    content: "Required format: username@domain";
 }
-
-/* input[type="email"]:invalid:not(:placeholder-shown) + span {
-    height: 10px;
-    transition: height .4s ease-in-out;
-}
-
-input[type="email"]:invalid:not(:placeholder-shown) + span:before {
-    position: absolute;
-    content: "Please enter email address in following format: login@domain";
-    font-size: .7em;
-    color: #DC143C;
-}  */
-
-
-
 
 input[type="tel"] + span::before {
     content: "optional";
@@ -216,6 +220,7 @@ input[type="tel"] + span::before {
     font-size: .6em;
     font-weight: bold;
 }
+
 
 ul {
     display: flex;
